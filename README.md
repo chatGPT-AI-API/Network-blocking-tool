@@ -23,6 +23,13 @@
 3. 构建解决方案
 4. 运行生成的NetBlocker.exe
 
+或者使用命令行：
+
+```bash
+dotnet build
+dotnet run
+```
+
 ## 注意事项
 
 - 需要管理员权限才能修改防火墙规则
