@@ -17,6 +17,9 @@ jobs:
       with:
         dotnet-version: '9.0.x'
         
+    - name: Install Windows Desktop workload
+      run: dotnet workload install windowsdesktop
+    
     - name: Restore dependencies
       run: dotnet restore
     
@@ -24,7 +27,12 @@ jobs:
       run: dotnet build --configuration Release --no-restore
     
     - name: Publish
-      run: dotnet publish -c Release -o publish --no-build
+      run: |
+        mkdir -p publish
+        dotnet publish -c Release -o publish --no-build
+    
+    - name: List publish directory (debug)
+      run: ls -R publish
     
     - name: Create Release
       uses: softprops/action-gh-release@v1
