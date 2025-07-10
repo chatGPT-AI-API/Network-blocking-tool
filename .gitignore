@@ -22,3 +22,7 @@ bld/
 
 ## Visual Studio cache/options directory
 .vs/
+
+## Email mapping files
+email-map.txt
+mailmap.txt
