@@ -1,0 +1,39 @@
+name: Release Build
+
+on:
+  push:
+    tags:
+      - 'v*'  # 当推送v开头的标签时触发
+
+jobs:
+  build:
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '9.0.x'
+        
+    - name: Restore dependencies
+      run: dotnet restore
+    
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+    
+    - name: Publish
+      run: dotnet publish -c Release -o publish --no-build
+    
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          publish/NetBlocker.exe
+          publish/NetBlocker.dll
+          publish/NetBlocker.pdb
+          publish/Newtonsoft.Json.dll
+          publish/NetBlocker.runtimeconfig.json
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
