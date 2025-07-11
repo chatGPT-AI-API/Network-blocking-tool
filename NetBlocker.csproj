@@ -6,6 +6,12 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <Version>1.0.1</Version>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
+    <FileVersion>1.0.1.0</FileVersion>
+    <Company>YourCompany</Company>
+    <Product>NetBlocker</Product>
+    <Description>Network blocking tool for Windows</Description>
   </PropertyGroup>
 
   <ItemGroup>
