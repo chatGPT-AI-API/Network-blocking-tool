@@ -85,9 +85,9 @@ jobs:
     - name: Build solution
       run: msbuild $env:Solution_Name /p:Configuration=$env:Configuration
 
-    # Upload build artifacts
+    # Upload build artifacts with unique name
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: Binaries
+        name: Binaries-${{ github.run_id }}
         path: bin\${{ matrix.configuration }}
