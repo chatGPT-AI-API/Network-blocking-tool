@@ -1,0 +1,20 @@
+# 忽略构建产物
+bin/
+obj/
+
+# 忽略邮件映射文件
+email-map.txt
+mailmap.txt
+
+# 忽略用户特定文件
+*.user
+*.suo
+*.cache
+
+# 忽略NuGet包
+packages/
+
+# 忽略编译输出
+*.exe
+*.dll
+*.pdb
