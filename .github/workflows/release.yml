@@ -1,0 +1,33 @@
+name: Release Build and Publish
+
+on:
+  push:
+    tags:
+      - 'v*' # 匹配v开头的tag，如v1.0.0
+
+jobs:
+  build-and-publish:
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '8.0.x'
+    
+    - name: Restore dependencies
+      run: dotnet restore
+    
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+    
+    - name: Publish
+      run: ./publish.ps1
+      
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: NetBlocker-Release
+        path: publish/
