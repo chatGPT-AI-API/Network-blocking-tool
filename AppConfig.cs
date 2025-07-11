@@ -45,7 +45,7 @@ namespace NetBlocker
                 if (File.Exists(ConfigFile))
                 {
                     var json = File.ReadAllText(ConfigFile);
-                    _rules = JsonSerializer.Deserialize<Dictionary<string, string>>(json);
+                    _rules = JsonSerializer.Deserialize<Dictionary<string, string>>(json) ?? new Dictionary<string, string>();
                 }
             }
             catch (Exception ex)
