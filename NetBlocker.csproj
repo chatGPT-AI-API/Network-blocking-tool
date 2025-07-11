@@ -19,4 +19,11 @@
     <!-- 当前版本13.0.3已支持.NET 8.0，无需升级 -->
   </ItemGroup>
 
+  <PropertyGroup>
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>false</SelfContained>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <PublishTrimmed>false</PublishTrimmed>
+  </PropertyGroup>
+
 </Project>

@@ -18,17 +18,26 @@
 
 ## 构建方法
 
-1. 确保已安装.NET Framework 4.7.2+
-2. 使用Visual Studio打开项目
-3. 构建解决方案
-4. 运行生成的NetBlocker.exe
+1. 确保已安装.NET 8.0 SDK
+2. 使用Visual Studio打开项目或使用命令行
 
-或者使用命令行：
-
+### 开发构建
 ```bash
 dotnet build
 dotnet run
 ```
+
+### 发布构建
+```bash
+powershell -ExecutionPolicy Bypass -File .\publish.ps1
+```
+生成的发布包将保存在NetBlocker-vX.X.X.zip中，包含:
+- NetBlocker.exe (单文件可执行程序)
+- NetBlocker.pdb (调试符号文件)
+
+### 系统要求
+- Windows 10/11
+- .NET 8.0运行时(如使用框架依赖部署)
 
 ## 注意事项
 
